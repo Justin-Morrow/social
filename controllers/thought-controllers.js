@@ -1,3 +1,4 @@
+const { restore } = require('../../ecommerce/models/Product');
 const { Thought } = require('../models/Thought');
 const User = require('../models/User');
 
@@ -33,10 +34,10 @@ const thoughtController = {
     addThought({ params, body }, res) {
         console.log(body);
         Thought.create(body)
-            .then(({ _id }) => {
+            .then(({ thought }) => {
                 return User.findOneAndUpdate(
-                    { _id: params.userId },
-                    { $push: { thoughts: _id } },
+                    { _id: body.userId },
+                    { $push: { thoughts: thought._id } },
                     { new: true }
                 );
             })
@@ -45,7 +46,8 @@ const thoughtController = {
                     res.status(404).json({ message: 'No user found with this id!' });
                     return;
                 }
-                res.json(dbUserData);
+                // res.json(dbUserData);
+                res.json({message: 'thought created'});
             })
             .catch(err => res.json(err));
     },
@@ -71,17 +73,16 @@ const thoughtController = {
                     return res.status(404).json({ message: 'No thought with this id!' });
                 }
                 return User.findOneAndUpdate(
-                    { _id: params.userId },
+                    { thoughts: params.thoughtId },
                     { $pull: { thoughts: params.thoughtId } },
                     { new: true }
                 );
             })
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'No user found with this id!' });
-                    return;
+                    return res.status(404).json({ message: 'No user found with this id!' });
                 }
-                res.json(dbUserData);
+                res.json({message: 'thought deleted'});
             })
             .catch(err => res.json(err));
     },
