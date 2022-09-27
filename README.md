@@ -5,6 +5,8 @@ Social Media API
 # Description
 A REST API for a social media app. Built with Express, Mongoose, and MongoDB.
 
+Video Link: https://drive.google.com/file/d/13bB2Cl28XUZsNVw7PNZk-CK4--HZ--Vm/view
+
 # User Story
 As a social media startup, I want an API for my social network that uses a NoSQL database so that my website can handle large amounts of unstructured data.
 
@@ -69,3 +71,4 @@ mongoose
 # Questions
 
 Justin Morrow
+https://github.com/Justin-Morrow/
