@@ -3,11 +3,15 @@
 Social Media API
 
 # Description
-A REST API for a social media app. Built with Express, Mongoose, and MongoDB.
+
+A REST API for a social media app. Built with Express, Mongoose, and MongoDB. 
+
+Demo video is shown using Insomnia
 
 Video Link: https://drive.google.com/file/d/13bB2Cl28XUZsNVw7PNZk-CK4--HZ--Vm/view
 
 # User Story
+
 As a social media startup, I want an API for my social network that uses a NoSQL database so that my website can handle large amounts of unstructured data.
 
 # Usage
@@ -44,9 +48,8 @@ Delete, Post
 express
 mongoose
 
-# Questions
+# Other Prompts
 
-If you have questions, please contact me on GitHub, https://github.com/Justin-Morrow/
 Delete a user: DELETE /api/users/:id
 Add a friend: PUT /api/users/:userId/friends/:friendId
 Delete a friend: DELETE /api/users/:userId/friends/:friendId
